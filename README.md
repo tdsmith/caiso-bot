@@ -4,4 +4,4 @@ Posts to Twitter about the current California electrical system demand and how m
 
 Uses data from CAISO OASIS. Built for Python 3.
 
-[Tim D. Smith <@biotimylated>](https://twitter.com/biotimylated), 2016.
+[Tim D. Smith \<@biotimylated\>](https://twitter.com/biotimylated), 2016.
