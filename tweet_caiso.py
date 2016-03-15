@@ -15,7 +15,7 @@ consumer_key, consumer_secret, token, token_secret = \
 def compose_tweet():
     renewables = fetch_caiso.get_current_renewables()
     demand = fetch_caiso.get_current_demand()
-    tweet = "⚡️🐻⚡️ Total: %d MW\n☀️: %d MW (%03.1f%%)\n🌬: %d MW (%03.1f%%)" % (
+    tweet = "⚡️🐻⚡️ Total: %d MW\n☀️: %d MW (%03.1f%%)\n💨: %d MW (%03.1f%%)" % (
         demand,
         renewables["Solar"],
         abs(renewables["Solar"]/demand * 100),
