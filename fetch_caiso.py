@@ -41,6 +41,7 @@ def get_current_renewables():
     root = oasis_get_current_rtm("SLD_REN_FCST", market_run_id="RTD")
     ns = {"oasis": "http://www.caiso.com/soa/OASISReport_v1.xsd"}
     reports = root.findall(".//oasis:REPORT_DATA", ns)
+    [et.dump(report) for report in reports]
     result = {}
     for report in reports:
         value = float(report.find("oasis:VALUE", ns).text)
