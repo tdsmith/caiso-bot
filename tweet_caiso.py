@@ -1,3 +1,4 @@
+import os
 import sys
 
 import requests
@@ -5,8 +6,10 @@ import requests_oauthlib
 
 import fetch_caiso
 
+secrets = os.path.join(os.path.dirname(__file__), "secrets")
+
 consumer_key, consumer_secret, token, token_secret = \
-    [line.strip() for line in open('secrets')]
+    [line.strip() for line in open(secrets)]
 
 
 def compose_tweet():
