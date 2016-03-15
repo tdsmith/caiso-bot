@@ -40,7 +40,10 @@ def oasis_get_current_rtm(query, **kwargs):
 def get_current_renewables():
     root = oasis_get_current_rtm("SLD_REN_FCST", market_run_id="RTD")
     ns = {"oasis": "http://www.caiso.com/soa/OASISReport_v1.xsd"}
-    reports = root.findall(".//oasis:REPORT_DATA", ns)
+    interval_nodes = root.findall(".//oasis:INTERVAL_NUM", ns)
+    max_interval = max([int(node.text) for node in interval_nodes])
+    search_string = ".//oasis:REPORT_DATA[oasis:INTERVAL_NUM='%s']" % max_interval
+    reports = root.findall(search_string, ns)
     result = {}
     for report in reports:
         value = float(report.find("oasis:VALUE", ns).text)
